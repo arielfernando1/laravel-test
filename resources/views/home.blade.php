@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-auto">
                 <form action="{{ route('log.store') }}" method="post">
                     @csrf
@@ -29,7 +29,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
-                    <div class="form-group">
+                    <div class="form-group m-3">
                         <label for="">Cantidad</label>
                         <input type="number" value="1" name="qty" id="qty" class="form-control"
                             placeholder="" aria-describedby="helpId">
@@ -61,7 +61,8 @@
         </div>
 
 
-        <table class="table table-striped table-inverse table-responsive">
+        <table class="table table-striped table-inverse table-responsive table-hover">
+            <caption>Ventas de hoy</caption>
             <thead class="thead-inverse">
                 <tr>
                     <th>Fecha</th>
