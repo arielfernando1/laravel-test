@@ -47,7 +47,7 @@
                     <td scope="row"><strong>Total<strong></td>
                     <td scope="row"></td>
                     <td></td>
-                    <td ><strong>{{ $logs->where('created_at', '>=', today())->sum('total') }}</strong></td>
+                    <td ><strong>{{ $logs->sum('total') }}</strong></td>
             </tbody>
 
         </table>
@@ -55,4 +55,7 @@
 
 
     </div>
+    <script>
+        //sum total of
+    </script>
 @endsection

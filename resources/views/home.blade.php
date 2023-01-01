@@ -82,11 +82,11 @@
                     @endif
                 @endforeach
                 <!-- show today's total -->
-                <tr>
+                <tr class="table-success">
                     <td scope="row">Total</td>
                     <td scope="row">{{ $logs->where('created_at', '>=', today())->sum('qty') }}</td>
                     <td></td>
-                    <td>{{ $logs->where('created_at', '>=', today())->sum('total') }}</td>
+                    <td><strong>{{ $logs->where('created_at', '>=', today())->sum('total') }}</strong></td>
             </tbody>
         </table>
         <script>
