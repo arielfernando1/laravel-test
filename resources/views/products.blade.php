@@ -22,8 +22,8 @@
 
                     <div class="form-group">
                         <label for=""></label>
-                        <input type="text" name="name" id="name" class="form-control"
-                            placeholder="" aria-describedby="helpId">
+                        <input type="text" name="name" id="name" class="form-control" placeholder=""
+                            aria-describedby="helpId">
                         <small id="helpId" class="text-muted">Nombre</small>
                     </div>
                     <div class="form-group">
@@ -59,8 +59,26 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->price }}</td>
+                        <td>
+                            <form action="{{ route('product.destroy', $product->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="showconfirm()">Eliminar</button>
+                            </form>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    @endsection
+    </div>
+    <script>
+        // confirm dialog
+        function showconfirm() {
+            var r = confirm("¿Esta seguro de eliminar este item?");
+            if (r == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+@endsection
