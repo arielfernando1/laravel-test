@@ -3,7 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="fecha"><h1>{{ date('Y-m-d') }}</h1></div>
+                <div class="fecha">
+                    <h1>{{ date('Y-m-d') }}</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -33,10 +35,9 @@
                             placeholder="" aria-describedby="helpId">
                     </div>
                     <!-- select product with search input -->
-                    <div class="form-group
-                        <label for="">Item</label>
-                        <select name="item" id="item" class="form-control">
-                            <option value="">Seleccionar</option>
+                    <div class="form-group m-3">
+                        <select name="item" id="item" class="form-control" autofocus>
+                            <option value="">Seleccionar Item</option>
                             @foreach ($products as $product)
                                 <option value="{{ $product->name }}">{{ $product->name }}</option>
                             @endforeach
@@ -90,6 +91,9 @@
             </tbody>
         </table>
         <script>
+            $(document).ready(function() {
+                $('#item').select2();
+            });
             // get product price
             const item = document.getElementById('item');
             const price = document.getElementById('price');
