@@ -91,9 +91,9 @@
             </tbody>
         </table>
         <script>
-            $(document).ready(function() {
-                $('#item').select2();
-            });
+            // $(document).ready(function() {
+            //     $('#item').select2();
+            // });
             // get product price
             const item = document.getElementById('item');
             const price = document.getElementById('price');
