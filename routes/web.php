@@ -21,3 +21,4 @@ Route::post('/log', [LogController::class,'store'])->name('log.store');
 Route::post('/product', [ProductController::class,'store'])->name('product.store');
 Route::get('/reports', [LogController::class,'reports'])->name('log.report');
 Route::get('/report', [LogController::class,'getreport'])->name('log.report');
+Route::delete('/product/{id}', [ProductController::class,'destroy'])->name('product.destroy');
