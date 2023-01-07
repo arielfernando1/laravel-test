@@ -31,8 +31,8 @@
 
                     <div class="form-group m-3">
                         <label for="">Cantidad</label>
-                        <input type="number" value="1" name="qty" id="qty" class="form-control"
-                            placeholder="" aria-describedby="helpId">
+                        <input min="1" type="number" value="1" name="qty" id="qty"
+                            class="form-control" placeholder="" aria-describedby="helpId" onchange="calculateTotal()">
                     </div>
                     <!-- select product with search input -->
                     <div class="form-group m-3">
@@ -88,7 +88,7 @@
                     <td scope="row">Total</td>
                     <td scope="row">{{ $logs->where('created_at', '>=', today())->sum('qty') }}</td>
                     <td></td>
-                    <td><strong>{{ $logs->where('created_at', '>=', today())->sum('total') }}</strong></td>
+                    <td><strong>$ {{ $logs->where('created_at', '>=', today())->sum('total') }}</strong></td>
             </tbody>
         </table>
         <script>
@@ -105,7 +105,11 @@
                 const selected = product.find(product => product.name === item.value);
                 price.value = selected.price;
                 // calculate total
-                total.value = price.value * qty.value;
+                calculateTotal();
             });
+
+            function calculateTotal() {
+                total.value = price.value * qty.value;
+            }
         </script>
     @endsection
