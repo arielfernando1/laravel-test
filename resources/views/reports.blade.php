@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container">
-        <h1>Reportes</h1>
+        <h3>Reportes</h3>
         <form action="{{ route('log.report') }}" method="get">
             @csrf
             <div class="form-group">
@@ -37,7 +37,7 @@
                 @foreach ($logs as $log)
                     <tr>
                         <td scope="row">{{ $log->created_at }}</td>
-                        <td>{{ $log->quantity }}</td>
+                        <td>{{ $log->qty }}</td>
                         <td>{{ $log->item }}</td>
                         <td>{{ $log->total }}</td>
                     </tr>
@@ -47,7 +47,7 @@
                     <td scope="row"><strong>Total<strong></td>
                     <td scope="row"></td>
                     <td></td>
-                    <td ><strong>{{ $logs->sum('total') }}</strong></td>
+                    <td ><strong>$ {{ $logs->sum('total') }}</strong></td>
             </tbody>
 
         </table>
