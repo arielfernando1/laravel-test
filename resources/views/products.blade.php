@@ -1,6 +1,7 @@
 @extends('app')
 @section('content')
-    <div class="container">
+    <div class="container my-3">
+        <h4>Productos</h4>
         <div class="row">
             <div class="col-auto">
                 <form action="{{ route('product.store') }}" method="post">
@@ -14,9 +15,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     @error('description')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    @error('price')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
