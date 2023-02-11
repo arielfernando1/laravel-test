@@ -45,7 +45,7 @@
                     </div>
                     <!-- selected product price -->
                     <div class="form-group
-                        <label for="">Precio</label>
+                        <label for="">Precio Unitario</label>
                         <input type="number" step="0.01" name="price" id="price" class="form-control"
                             placeholder="" aria-describedby="helpId">
                     </div>
@@ -92,21 +92,48 @@
             </tbody>
         </table>
         <script>
-            // $(document).ready(function() {
-            //     $('#item').select2();
-            // });
-            // get product price
-            const item = document.getElementById('item');
-            const price = document.getElementById('price');
-            const qty = document.getElementById('qty');
-            const total = document.getElementById('total');
-            item.addEventListener('change', function() {
-                const product = @json($products);
-                const selected = product.find(product => product.name === item.value);
-                price.value = selected.price;
-                // calculate total
-                calculateTotal();
+            $(document).ready(function() {
+                $('#item').select2(
+                    {
+                        placeholder: 'Seleccionar Item',
+                        width: 'resolve'
+
+                    }
+                );
+                // get product price
+                $('#item').on('change', function() {
+                    const product = @json($products);
+                    const selected = product.find(product => product.name === $('#item').val());
+                    $('#price').val(selected.price);
+                    // calculate total
+                    console.log($('#price').val());
+                    calculateTotal();
+                });
             });
+            // get product price
+
+            // const item = document.getElementById('item');
+            // const price = document.getElementById('price');
+            // const qty = document.getElementById('qty');
+            // const total = document.getElementById('total');
+            // item.addEventListener('change', function() {
+            //     const product = @json($products);
+            //     const selected = product.find(product => product.name === item.value);
+            //     price.value = selected.price;
+            //     // calculate total
+            //     console.log(price.value);
+            //     calculateTotal();
+            // });
+
+            // #('item').on('change', function() {
+            //     const product = @json($products);
+            //     const selected = product.find(product => product.name === item.value);
+            //     price.value = selected.price;
+            //     calculate total
+            //     console.log(price.value);
+            //     calculateTotal();
+            // });
+
 
             function calculateTotal() {
                 total.value = price.value * qty.value;

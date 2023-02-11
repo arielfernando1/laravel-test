@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for=""></label>
                         <input type="text" name="name" id="name" class="form-control" placeholder=""
-                            aria-describedby="helpId">
+                            aria-describedby="helpId" onkeyup="this.value = this.value.toUpperCase()">
                         <small id="helpId" class="text-muted">Nombre</small>
                     </div>
                     <div class="form-group">
@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <label for=""></label>
-                        <input type="number" step="0.01" name="price" id="price" class="form-control"
+                        <input type="number" step="0.05" name="price" id="price" class="form-control"
                             placeholder="" aria-describedby="helpId">
                         <small id="helpId" class="text-muted">Precio</small>
                     </div>
@@ -78,5 +78,13 @@
                 return false;
             }
         }
+        // select all inputs in form 
+        var inputs = document.querySelectorAll('input');
+        // auto uppercase input
+        inputs.forEach(input => {
+            input.addEventListener('keyup', function() {
+                this.value = this.value.toUpperCase();
+            });
+        });
     </script>
 @endsection
