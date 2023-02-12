@@ -65,7 +65,7 @@ class ProductController extends Controller
 
     // show individual product
 
-    public function show($id){
+    public function showInfo($id){
         $product = Product::find($id);
         return view('modal', compact('product'));
 

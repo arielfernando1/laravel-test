@@ -85,14 +85,10 @@
                         <tr>
                             <td scope="row">{{ $log->created_at }}</td>
                             <td scope="row">{{ $log->qty }}</td>
-                            <!-- product name and brand -->
                             <td scope="row">
-                                <a href="#" class="open-modal" data-bs-toggle="modal"
-                                    data-bs-target="#productModal" data-id="{{ $product->id }}">{{ $log->product->name }}
+                                <a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#productModal"
+                                    data-id="{{ $log->product->id }}">{{ $log->product->name }}
                                     {{ $log->product->brand }}</a>
-                                {{-- <a href="#" class="open-modal" data-toggle="modal" data-target="#productModal"
-                                    data-id="{{ $product->id }}"> Show Product </a> --}}
-
                             </td>
                             <td>{{ $log->total }}</td>
                         </tr>

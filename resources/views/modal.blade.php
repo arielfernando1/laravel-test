@@ -11,9 +11,6 @@
     <p><strong>Costo  :</strong> {{ $product->cost }}</p>
     <p><strong>Precio  :</strong> {{ $product->price }}</p>
     <p><strong>Descripcion  :</strong> {{ $product->description }}</p>
-    <!-- Sell count of the product -->
-    <p><strong>Vendidos  :</strong> {{ $product->sell_count }}</p>
-
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

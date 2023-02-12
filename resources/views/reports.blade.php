@@ -40,7 +40,7 @@
                     <tr>
                         <td scope="row">{{ $log->created_at }}</td>
                         <td>{{ $log->qty }}</td>
-                        <td>{{ $log->item }}</td>
+                        <td>{{ $log->product -> name }}</td>
                         <td>{{ $log->total }}</td>
                     </tr>
                 @endforeach
