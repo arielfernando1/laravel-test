@@ -39,7 +39,7 @@
                         <select name="item" id="item" class="form-control" autofocus>
                             <option value="">Seleccionar Item</option>
                             @foreach ($products as $product)
-                                <option value="{{ $product->name }}">{{ $product->name }}</option>
+                                <option value="{{ $product->id }}">{{ $product->name }} {{ $product->brand }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -59,7 +59,14 @@
                 </form>
             </div>
         </div>
-
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!-- Modal content goes here -->
+                </div>
+            </div>
+        </div>
 
         <table class="table table-striped table-inverse table-responsive table-hover">
             <caption>Ventas de hoy</caption>
@@ -78,7 +85,15 @@
                         <tr>
                             <td scope="row">{{ $log->created_at }}</td>
                             <td scope="row">{{ $log->qty }}</td>
-                            <td>{{ $log->item }}</td>
+                            <!-- product name and brand -->
+                            <td scope="row">
+                                <a href="#" class="open-modal" data-bs-toggle="modal"
+                                    data-bs-target="#productModal" data-id="{{ $product->id }}">{{ $log->product->name }}
+                                    {{ $log->product->brand }}</a>
+                                {{-- <a href="#" class="open-modal" data-toggle="modal" data-target="#productModal"
+                                    data-id="{{ $product->id }}"> Show Product </a> --}}
+
+                            </td>
                             <td>{{ $log->total }}</td>
                         </tr>
                     @endif
@@ -93,21 +108,20 @@
         </table>
         <script>
             $(document).ready(function() {
-                $('#item').select2(
-                    {
-                        placeholder: 'Seleccionar Item',
-                        width: 'resolve'
+                $('#item').select2({
+                    placeholder: 'Seleccionar Item',
+                    width: 'resolve'
 
-                    }
-                );
+                });
                 // get product price
                 $('#item').on('change', function() {
                     const product = @json($products);
-                    const selected = product.find(product => product.name === $('#item').val());
+                    const selected = product.find(product => product.id === parseInt(item.value));
                     $('#price').val(selected.price);
                     // calculate total
-                    console.log($('#price').val());
+                    console.log(price.value);
                     calculateTotal();
+
                 });
             });
             // get product price
@@ -138,5 +152,18 @@
             function calculateTotal() {
                 total.value = price.value * qty.value;
             }
+            $(document).ready(function() {
+                $('.open-modal').on('click', function() {
+                    var id = $(this).data('id');
+                    $.ajax({
+                        type: "GET",
+                        url: "/product/" + id,
+                        success: function(data) {
+                            $('#productModal .modal-content').html(data);
+                            $('#productModal').modal('show');
+                        }
+                    });
+                });
+            });
         </script>
     @endsection

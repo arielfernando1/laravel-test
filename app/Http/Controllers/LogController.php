@@ -20,6 +20,7 @@ class LogController extends Controller{
             'total' => 'required'
         ]);
         $log = new Log();
+        $log->product_id = $request->item;
         $log->qty = $request->qty;
         $log->item = $request->item;
         $log->total = $request->total;

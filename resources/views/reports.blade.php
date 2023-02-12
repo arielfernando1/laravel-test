@@ -8,11 +8,13 @@
             <div class="form-group">
                 <label for="date">Filtrar por Fecha</label>
                 <input type="date" name="date" id="date" class="form-control" placeholder="" aria-describedby="helpId"
-                    required>
+                    required value="{{ date('Y-m-d') }}">
                 <small id="helpId" class="text-muted">Selecciona una fecha</small>
             </div>
             <button type="submit" class="btn btn-success">Filtrar</button>
         </form>
+        <br>
+        <!-- show success or error message -->
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -56,6 +58,24 @@
 
     </div>
     <script>
-        //sum total of
+        // datatable
+        $(document).ready(function() {
+            $('.table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "No se encontraron registros",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    },
+                }
+            });
+        });
     </script>
 @endsection
