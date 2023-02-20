@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="date">Filtrar por Fecha</label>
                 <input type="date" name="date" id="date" class="form-control" placeholder="" aria-describedby="helpId"
-                    required value="{{ date('Y-m-d') }}">
+                    required">
                 <small id="helpId" class="text-muted">Selecciona una fecha</small>
             </div>
             <button type="submit" class="btn btn-success">Filtrar</button>

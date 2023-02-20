@@ -25,3 +25,5 @@ Route::delete('/product/{id}', [ProductController::class,'destroy'])->name('prod
 Route::get('/product/{id}/edit', [ProductController::class,'edit'])->name('product.show');
 Route::patch('/product/{id}', [ProductController::class,'update'])->name('product.update');
 Route::get('/product/{id}', [ProductController::class, 'showInfo'])->name('product.showmodal');
+// show add product form
+Route::get('/addproduct', [ProductController::class,'showAdd'])->name('product.add');

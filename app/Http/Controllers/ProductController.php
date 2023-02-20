@@ -67,7 +67,10 @@ class ProductController extends Controller
 
     public function showInfo($id){
         $product = Product::find($id);
-        return view('modal', compact('product'));
+        return view('modals/modal', compact('product'));
 
+    }
+    public function showAdd(){
+        return view('modals/add');
     }
 }
