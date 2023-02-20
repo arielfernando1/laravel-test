@@ -16,6 +16,8 @@
                 @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+                <!--added date field-->
+                <a>Creado el {{ $product->created_at }}</a>
                 <div class="form-group">
                     <label for=""></label>
                     <input type="text" name="name" id="name" class="form-control" placeholder=""
@@ -30,9 +32,9 @@
                 </div>
                 <div class="form-group">
                     <label for=""></label>
-                    <input type="number" min="1" name="stock" id="stock" class="form-control" placeholder=""
+                    <input type="number" min="0" name="stock" id="stock" class="form-control" placeholder="Existencias"
                         aria-describedby="helpId" value="{{ $product->stock }}">
-                    <small id="helpId" class="text-muted">Stock</small>
+                    <small id="helpId" class="text-muted">Stocka</small>
                 </div>
                 <div class="form-group">
                     <label for=""></label>
@@ -40,7 +42,6 @@
                         placeholder="" aria-describedby="helpId" value="{{ $product->cost }}">
                     <small id="helpId" class="text-muted">Costo</small>
                 </div>
-
                 <div class="form-group">
                     <label for=""></label>
                     <input type="number" step="0.05" min="0.05" name="price" id="price" class="form-control"

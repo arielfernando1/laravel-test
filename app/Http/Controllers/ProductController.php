@@ -18,7 +18,6 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:32',
-            'description' => 'required|max:255',
         ]);
         $product = new Product();
         $product->name = $request->name;
@@ -50,7 +49,6 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:32',
-            'description' => 'required|max:255',
         ]);
         $product = Product::find($id);
         $product->name = $request->name;
@@ -65,12 +63,14 @@ class ProductController extends Controller
 
     // show individual product
 
-    public function showInfo($id){
+    public function showInfo($id)
+    {
         $product = Product::find($id);
         return view('modals/modal', compact('product'));
 
     }
-    public function showAdd(){
+    public function showAdd()
+    {
         return view('modals/add');
     }
 }

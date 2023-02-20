@@ -50,7 +50,7 @@
         <div class="form-group">
             <label for=""></label>
             <input type="text" name="description" id="description" class="form-control" placeholder=""
-                aria-describedby="helpId" required>
+                aria-describedby="helpId">
             <small id="helpId" class="text-muted">Descripcion</small>
         </div>
         <button type="submit" class="btn btn-success my-5">Registrar</button>

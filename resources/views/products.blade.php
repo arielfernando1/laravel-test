@@ -39,7 +39,12 @@
                     <tr>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->brand }}</td>
-                        <td>{{ $product->stock }}</td>
+                        <!-- If stock is less than 10, show a warning -->
+                        @if ($product->stock == 0)
+                            <td class="text-danger"><strong>{{ $product->stock }}</strong></td>
+                        @else
+                            <td>{{ $product->stock }}</td>
+                        @endif
                         <td>{{ $product->cost }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->description }}</td>
