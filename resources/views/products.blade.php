@@ -64,6 +64,7 @@
         //data table
         $(document).ready(function() {
             $('.table').DataTable({
+                "pageLength": 100,
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por pagina",
                     "zeroRecords": "No se encontraron resultados en su busqueda",
