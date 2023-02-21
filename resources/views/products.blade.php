@@ -8,7 +8,8 @@
         </button>
 
         <!-- Scrollable Modal -->
-        <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog"
+            aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <!-- Modal content goes here -->
@@ -21,7 +22,7 @@
         @error('description')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-        <table class="table table-striped table-inverse table-responsive">
+        <table class="table">
             <thead class="thead-inverse">
                 <tr>
                     <th>Nombre</th>
@@ -40,11 +41,26 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->brand }}</td>
                         <!-- If stock is less than 10, show a warning -->
-                        @if ($product->stock == 0)
-                            <td class="text-danger"><strong>{{ $product->stock }}</strong></td>
-                        @else
-                            <td>{{ $product->stock }}</td>
+                        @switch(true)
+                        @case($product->stock === null)
+                            <td class="table-info"><strong>{{ $product->stock }}</strong></td>
+                            
+                        @break
+                            @case($product->stock === 0)
+                                <td class="table-danger"><strong>{{ $product->stock }}</strong></td>
+                            @break
+
+                            @case($product->stock < 10)
+                                <td class="table-warning"><strong>{{ $product->stock }}</strong></td>
+                            @break
+                            @default
+                                <td class="table-success"><strong>{{ $product->stock }}</strong></td>
+                        @endswitch
+                        {{-- @else ($product->stock < 10)
                         @endif
+                        @else ($product->stock > 12)
+                            <td class="table-success">{{ $product->stock }}</td>
+                        @endif --}}
                         <td>{{ $product->cost }}</td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->description }}</td>

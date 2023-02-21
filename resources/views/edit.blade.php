@@ -17,7 +17,16 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <!--added date field-->
-                <a>Creado el {{ $product->created_at }}</a>
+                <div class="d-flex justify-content-center my-5 text-center">
+                    <ul class="list-group">
+                        <li class="list-group-item"><i class="bi bi-plus"></i> Creado el: {{ $product->created_at }}</li>
+                        @if ($product->created_at != $product->updated_at)
+                        <li class="list-group-item"><i class="bi bi-arrow-clockwise"></i> Modificado el: {{ $product->updated_at }}</li>
+                        @endif
+
+                        <li class="list-group-item"><i class="bi bi-bookmark-fill"></i> PID: {{ $product-> id }}</li>
+                    </ul>
+                </div>
                 <div class="form-group">
                     <label for=""></label>
                     <input type="text" name="name" id="name" class="form-control" placeholder=""
@@ -32,9 +41,9 @@
                 </div>
                 <div class="form-group">
                     <label for=""></label>
-                    <input type="number" min="0" name="stock" id="stock" class="form-control" placeholder="Existencias"
-                        aria-describedby="helpId" value="{{ $product->stock }}">
-                    <small id="helpId" class="text-muted">Stocka</small>
+                    <input type="number" min="0" name="stock" id="stock" class="form-control"
+                        placeholder="Existencias" aria-describedby="helpId" value="{{ $product->stock }}">
+                    <small id="helpId" class="text-muted">Stock</small>
                 </div>
                 <div class="form-group">
                     <label for=""></label>
