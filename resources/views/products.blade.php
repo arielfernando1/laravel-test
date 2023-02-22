@@ -74,7 +74,7 @@
                         <td>
                             <form action="{{ route('product.show', $product->id) }}" method="get">
                                 @csrf
-                                <button type="submit" class="btn btn-warning">Editar</button>
+                                <button type="submit" class="btn btn-warning"><i class="bi bi-eye-fill"></i> Ver</button>
                             </form>
                     </tr>
                 @endforeach

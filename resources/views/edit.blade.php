@@ -21,10 +21,13 @@
                     <ul class="list-group">
                         <li class="list-group-item"><i class="bi bi-plus"></i> Creado el: {{ $product->created_at }}</li>
                         @if ($product->created_at != $product->updated_at)
-                        <li class="list-group-item"><i class="bi bi-arrow-clockwise"></i> Modificado el: {{ $product->updated_at }}</li>
+                            <li class="list-group-item"><i class="bi bi-arrow-clockwise"></i> Modificado el:
+                                {{ $product->updated_at }}</li>
                         @endif
 
-                        <li class="list-group-item"><i class="bi bi-bookmark-fill"></i> PID: {{ $product-> id }}</li>
+                        <li class="list-group-item"><i class="bi bi-bookmark-fill"></i> PID: {{ $product->id }}</li>
+                        <li class="list-group-item"> Vendido {{ $sells-> count() }} veces </li>
+
                     </ul>
                 </div>
                 <div class="form-group">
@@ -71,6 +74,27 @@
             </form>
         </div>
     </div>
+    @if ($sells->count() > 0)
+    <div class="container">
+        <h4>Historial de ventas</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($sells as $sell)
+                    <tr>
+                        <td>{{ $sell->created_at }}</td>
+                        <td>{{ $sell->qty}}</td>
+                    </tr>
+                @endforeach
+           
+    </div>
+    @endif
     <script>
         // check if changes were made
         var changes = false;

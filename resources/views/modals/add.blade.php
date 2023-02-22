@@ -36,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for=""></label>
-            <input type="number" step="0.05" min="0.05" name="cost" id="cost" class="form-control"
+            <input type="number" step="0.01" min="0.001" name="cost" id="cost" class="form-control"
                 placeholder="" aria-describedby="helpId">
             <small id="helpId" class="text-muted">Costo</small>
         </div>

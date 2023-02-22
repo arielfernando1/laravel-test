@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('edit', ['product' => $product]);
+        $sells = DB::table('logs')->where('product_id', $id)->get();
+
+        return view('edit', ['product' => $product], ['sells' => $sells]);
     }
     // update product
     public function update(Request $request, $id)
