@@ -36,14 +36,14 @@
         </div>
         <div class="form-group">
             <label for=""></label>
-            <input type="number" step="0.01" min="0.001" name="cost" id="cost" class="form-control"
+            <input type="number" step="0.001" min="0.001" name="cost" id="cost" class="form-control"
                 placeholder="" aria-describedby="helpId">
             <small id="helpId" class="text-muted">Costo</small>
         </div>
 
         <div class="form-group">
             <label for=""></label>
-            <input type="number" step="0.05" min="0.05" name="price" id="price" class="form-control"
+            <input type="number" step="0.001" min="0.001" name="price" id="price" class="form-control"
                 placeholder="" aria-describedby="helpId">
             <small id="helpId" class="text-muted">Precio</small>
         </div>

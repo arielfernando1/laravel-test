@@ -36,7 +36,7 @@
                     </div>
                     <!-- select product with search input -->
                     <div class="form-group m-3">
-                        <select name="item" id="item" class="form-control" autofocus>
+                        <select name="item" id="item" class="form-control" autofocus required>
                             <option value="">Seleccionar Item</option>
                             @foreach ($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->name }} {{ $product->brand }}</option>
@@ -51,8 +51,8 @@
                     </div>
                     <div class="form-group">
                         <label for="">Total</label>
-                        <input type="text" name="total" id="total" class="form-control" placeholder=""
-                            aria-describedby="helpId">
+                        <input type="number" step="0.001" name="total" id="total" class="form-control" placeholder=""
+                            aria-describedby="helpId" required>
                     </div>
 
                     <button type="submit" class="btn btn-success m-3">Registrar</button>

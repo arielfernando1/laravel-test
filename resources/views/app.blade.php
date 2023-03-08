@@ -43,6 +43,36 @@
             font-size: 2rem;
             font-weight: bold;
         }
+
+        .box {
+            display: flex;
+            align-items: center;
+            width: auto;
+            /* height: 100px; */
+            /* border: 2px solid black;
+            border-radius: 5px; */
+            /* padding: 10px; */
+        }
+
+        .number {
+            font-size: 36px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            /* background-color: #3d9683; */
+            color: #000000;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .box-container {
+            display: flex;
+        }
     </style>
 </head>
 
@@ -70,6 +100,7 @@
         </div>
     </nav>
     @yield('content')
+
 </body>
 
 </html>

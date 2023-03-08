@@ -61,6 +61,7 @@
         // datatable
         $(document).ready(function() {
             $('.table').DataTable({
+                "pageLength": 100,
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
                     "zeroRecords": "No se encontraron registros",

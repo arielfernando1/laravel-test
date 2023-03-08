@@ -1,15 +1,25 @@
 @extends('app')
 @section('content')
+    <!-- bootstrap row -->
+    <div class="container">
+        <div class="row">
+            <div class="col box m-5">
+                <div class="number">{{ $products->count() }}</div>
+                <div class="text">Productos en existencia</div>
+            </div>
+        </div>
+
+    </div>
     <div class="container my-3">
-        <h4>{{ $products->count() }} Productos</h4>
+        {{-- <h4> Productos</h4> --}}
         <!-- Open modal button -->
         <button type="button" class="btn btn-success m-5" data-bs-toggle="modal" data-bs-target="#addModal">
             Agregar
         </button>
 
         <!-- Scrollable Modal -->
-        <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog"
-            aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <!-- Modal content goes here -->
@@ -42,10 +52,10 @@
                         <td>{{ $product->brand }}</td>
                         <!-- If stock is less than 10, show a warning -->
                         @switch(true)
-                        @case($product->stock === null)
-                            <td class="table-info"><strong>{{ $product->stock }}</strong></td>
-                            
-                        @break
+                            @case($product->stock === null)
+                                <td class="table-info"><strong>{{ $product->stock }}</strong></td>
+                            @break
+
                             @case($product->stock === 0)
                                 <td class="table-danger"><strong>{{ $product->stock }}</strong></td>
                             @break
@@ -53,6 +63,7 @@
                             @case($product->stock < 10)
                                 <td class="table-warning"><strong>{{ $product->stock }}</strong></td>
                             @break
+
                             @default
                                 <td class="table-success"><strong>{{ $product->stock }}</strong></td>
                         @endswitch
