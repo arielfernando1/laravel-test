@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
     <!-- bootstrap row -->
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
             <div class="col box m-5">
                 <div class="number">{{ $products->count() }}</div>
@@ -9,7 +9,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
     <div class="container my-3">
         {{-- <h4> Productos</h4> --}}
         <!-- Open modal button -->
